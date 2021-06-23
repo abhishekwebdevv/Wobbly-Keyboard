@@ -60,7 +60,11 @@ function getRandomKey() {
 function targetRandomKey() {
   const id = getRandomKey();
   const key = document.getElementById(id);
-  key.classList.add('selected');
+  if (key) {
+    key.classList.add('selected');
+  } else {
+    targetRandomKey();
+  }
 }
 
 document.addEventListener('keydown', (event) => {
@@ -80,7 +84,3 @@ document.addEventListener('keydown', (event) => {
 });
 
 targetRandomKey();
-
-// console.log(getRandomKey());
-// console.log(targetRandomKey());
-// console.log(document.getElementById('o'));
